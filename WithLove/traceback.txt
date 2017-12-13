@@ -1,19 +1,25 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-Exception: Could not find font u'Georgia.ttf'.
+While loading <'Image' u'char/charmin/Wiseguy/Eyebrows_0000s_0000.png'>:
+  File "game/script.rpy", line 36, in script
+    c "For starters, you are the type of Hoe that would hide behind their “I’m the cool and mysterious type” but in reality,"
+IOError: Couldn't find file 'char/charmin/Wiseguy/Eyebrows_0000s_0000.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in script
-    python hide:
-  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\ast.py", line 814, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\python.py", line 1719, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "renpy/common/_layout/screen_main_menu.rpym", line 30, in <module>
-    ui.interact()
+  File "game/script.rpy", line 36, in script
+    c "For starters, you are the type of Hoe that would hide behind their “I’m the cool and mysterious type” but in reality,"
+  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\ast.py", line 613, in execute
+    renpy.exports.say(who, what, interact=self.interact)
+  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\exports.py", line 1147, in say
+    who(what, interact=interact)
+  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\character.py", line 877, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, **display_args)
+  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\character.py", line 716, in do_display
+    **display_args)
+  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\character.py", line 508, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
   File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\ui.py", line 285, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\display\core.py", line 2526, in interact
@@ -44,8 +50,14 @@ Full traceback:
     cpdef render(d, object widtho, object heighto, double st, double at):
   File "renpy/display/render.pyx", line 196, in renpy.display.render.render (gen\renpy.display.render.c:2978)
     rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\display\screen.py", line 623, in render
-    child = renpy.display.render.render(self.child, w, h, st, at)
+  File "renpy/display/accelerator.pyx", line 108, in renpy.display.accelerator.transform_render (gen\renpy.display.accelerator.c:2027)
+    cr = render(child, widtho, heighto, st - self.child_st_base, at)
+  File "renpy/display/render.pyx", line 196, in renpy.display.render.render (gen\renpy.display.render.c:2978)
+    rv = d.render(widtho, heighto, st, at)
+  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\display\image.py", line 387, in render
+    return wrap_render(self.target, width, height, st, at)
+  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\display\image.py", line 208, in wrap_render
+    rend = render(child, w, h, st, at)
   File "renpy/display/render.pyx", line 110, in renpy.display.render.render (gen\renpy.display.render.c:3440)
     cpdef render(d, object widtho, object heighto, double st, double at):
   File "renpy/display/render.pyx", line 196, in renpy.display.render.render (gen\renpy.display.render.c:2978)
@@ -56,37 +68,21 @@ Full traceback:
     cpdef render(d, object widtho, object heighto, double st, double at):
   File "renpy/display/render.pyx", line 196, in renpy.display.render.render (gen\renpy.display.render.c:2978)
     rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\display\layout.py", line 895, in render
-    surf = render(d, width - x, rh, cst, cat)
+  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\display\layout.py", line 318, in render
+    surf = render(self.child, width, height, st, at)
   File "renpy/display/render.pyx", line 110, in renpy.display.render.render (gen\renpy.display.render.c:3440)
     cpdef render(d, object widtho, object heighto, double st, double at):
   File "renpy/display/render.pyx", line 196, in renpy.display.render.render (gen\renpy.display.render.c:2978)
     rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\display\behavior.py", line 707, in render
-    rv = super(Button, self).render(width, height, st, at)
-  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\display\layout.py", line 1054, in render
-    xminimum = max(xminimum, size_groups[size_group].width(width, height, st, at))
-  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\display\layout.py", line 999, in width
-    rend = i.render(width, height, st, at)
-  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\display\behavior.py", line 707, in render
-    rv = super(Button, self).render(width, height, st, at)
-  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\display\layout.py", line 1081, in render
-    st, at)
-  File "renpy/display/render.pyx", line 110, in renpy.display.render.render (gen\renpy.display.render.c:3440)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 196, in renpy.display.render.render (gen\renpy.display.render.c:2978)
-    rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\text\text.py", line 1732, in render
-    virtual_layout = Layout(self, width, height, renders, drawable_res=False, size_only=True)
-  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\text\text.py", line 574, in __init__
-    glyphs = ts.glyphs(s, self)
-  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\text\text.py", line 236, in glyphs
-    fo = font.get_font(self.font, self.size, self.bold, self.italic, 0, self.antialias, self.vertical, self.hinting, layout.oversample)
-  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\text\font.py", line 648, in get_font
-    face = load_face(fn)
-  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\text\font.py", line 590, in load_face
-    raise Exception("Could not find font {0!r}.".format(orig_fn))
-Exception: Could not find font u'Georgia.ttf'.
+  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\display\im.py", line 473, in render
+    im = cache.get(self)
+  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\display\im.py", line 200, in get
+    surf = image.load()
+  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\display\im.py", line 524, in load
+    surf = renpy.display.pgrender.load_image(renpy.loader.load(self.filename), self.filename)
+  File "C:\Users\lopez\Documents\renpy-6.99.12.4-sdk\renpy\loader.py", line 543, in load
+    raise IOError("Couldn't find file '%s'." % name)
+IOError: Couldn't find file 'char/charmin/Wiseguy/Eyebrows_0000s_0000.png'.
 
 Windows-8-6.2.9200
 Ren'Py 6.99.12.4.2187

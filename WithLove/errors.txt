@@ -1,0 +1,13 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/img.rpy", line 3: expected 'word' not found.
+    style.say_who_window.background = Frame("SayWhoBox1.png",15,15)
+         ^
+
+File "game/img.rpy", line 4: expected 'word' not found.
+    style.window.background = Frame ("OrangeBox1.png",15,15)
+         ^
+
+Ren'Py Version: Ren'Py 6.99.12.4.2187
